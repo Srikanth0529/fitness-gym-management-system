@@ -1,0 +1,307 @@
+/* ==========================================
+   SIDEBAR
+   ========================================== */
+
+.sidebar {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    z-index: 900;
+
+    width: 260px;
+    height: calc(100vh - 64px);
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--color-sidebar-background);
+
+    border-right: var(--border-width-thin) solid #166534;
+
+    transition:
+        width 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* ==========================================
+   SIDEBAR HEADER
+   ========================================== */
+
+.sidebar__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 94px;
+
+    padding: var(--spacing-5) var(--spacing-5);
+
+    border-bottom: var(--border-width-thin) solid #166534;
+}
+
+.sidebar__header > div {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.sidebar__role {
+    color: #86efac;
+
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+
+    letter-spacing: 0.04em;
+}
+
+.sidebar__label {
+    margin-top: var(--spacing-1);
+
+    color: var(--color-sidebar-text-muted);
+
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+}
+
+
+/* ==========================================
+   SIDEBAR CLOSE BUTTON
+   ========================================== */
+
+.sidebar__close {
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+    border-radius: var(--radius-md);
+
+    background-color: transparent;
+    color: #dcfce7;
+
+    font-size: 1.5rem;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.sidebar__close:hover {
+    background-color: var(--color-sidebar-hover);
+    color: #ffffff;
+}
+
+.sidebar__close:focus-visible {
+    outline: var(--border-width-medium) solid #86efac;
+    outline-offset: 2px;
+}
+
+
+/* ==========================================
+   NAVIGATION
+   ========================================== */
+
+.sidebar__navigation {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--spacing-2);
+
+    padding: var(--spacing-5) var(--spacing-3);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+/* ==========================================
+   SCROLLBAR
+   ========================================== */
+
+.sidebar__navigation::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar__navigation::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.sidebar__navigation::-webkit-scrollbar-thumb {
+    background-color: #166534;
+    border-radius: var(--radius-full);
+}
+
+.sidebar__navigation::-webkit-scrollbar-thumb:hover {
+    background-color: #15803d;
+}
+
+
+/* ==========================================
+   COLLAPSED SIDEBAR
+   ========================================== */
+
+.sidebar--collapsed {
+    width: 76px;
+}
+
+.sidebar--collapsed .sidebar__header {
+    justify-content: center;
+
+    padding-left: var(--spacing-2);
+    padding-right: var(--spacing-2);
+}
+
+.sidebar--collapsed .sidebar__header > div {
+    display: none;
+}
+
+.sidebar--collapsed .sidebar__navigation {
+    padding-left: var(--spacing-2);
+    padding-right: var(--spacing-2);
+}
+
+.sidebar--collapsed .navigation-item {
+    justify-content: center;
+}
+
+.sidebar--collapsed .navigation-item__icon {
+    margin-right: 0;
+}
+
+.sidebar--collapsed .navigation-item__label {
+    display: none;
+}
+
+
+/* ==========================================
+   OVERLAY
+   ========================================== */
+
+.sidebar__overlay {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+    z-index: 899;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+    border: none;
+
+    background-color: var(--color-overlay);
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   NAVIGATION ITEM OVERRIDES
+   ========================================== */
+
+.sidebar .navigation-item {
+    color: var(--color-sidebar-text);
+}
+
+.sidebar .navigation-item:hover {
+    background-color: var(--color-sidebar-hover);
+    color: #ffffff;
+}
+
+.sidebar .navigation-item--active {
+    background-color: var(--color-sidebar-active-background);
+    color: var(--color-sidebar-active-text);
+
+    font-weight: var(--font-weight-semibold);
+}
+
+.sidebar .navigation-item--active:hover {
+    background-color: var(--color-sidebar-active-background);
+    color: var(--color-sidebar-active-text);
+}
+
+
+/* ==========================================
+   TABLET / MOBILE DRAWER
+   ========================================== */
+
+@media (max-width: 1023px) {
+    .sidebar {
+        top: 64px;
+
+        transform: translateX(-100%);
+
+        box-shadow: var(--shadow-xl);
+    }
+
+    .sidebar--open {
+        transform: translateX(0);
+    }
+
+    .sidebar__overlay {
+        display: block;
+    }
+
+    .sidebar__close {
+        display: flex;
+    }
+
+    /* No desktop collapsed behavior on tablet/mobile */
+    .sidebar--collapsed {
+        width: 260px;
+    }
+
+    .sidebar--collapsed .sidebar__header {
+        justify-content: space-between;
+
+        padding-left: var(--spacing-5);
+        padding-right: var(--spacing-5);
+    }
+
+    .sidebar--collapsed .sidebar__header > div {
+        display: flex;
+    }
+
+    .sidebar--collapsed .sidebar__navigation {
+        padding-left: var(--spacing-3);
+        padding-right: var(--spacing-3);
+    }
+
+    .sidebar--collapsed .navigation-item {
+        justify-content: flex-start;
+    }
+
+    .sidebar--collapsed .navigation-item__icon {
+        margin-right: var(--spacing-3);
+    }
+
+    .sidebar--collapsed .navigation-item__label {
+        display: inline;
+    }
+}
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 639px) {
+    .sidebar {
+        top: 56px;
+
+        width: min(280px, 86vw);
+        height: calc(100vh - 56px);
+    }
+
+    .sidebar--collapsed {
+        width: min(280px, 86vw);
+    }
+}

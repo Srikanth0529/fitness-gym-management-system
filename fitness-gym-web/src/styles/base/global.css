@@ -1,0 +1,92 @@
+body {
+    min-width: 320px;
+    min-height: 100vh;
+
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-body-md);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-normal);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+    min-height: 100vh;
+}
+
+
+/* ==========================================
+   Typography
+   ========================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+}
+
+h1 {
+    font-size: var(--font-size-heading-xl);
+}
+
+h2 {
+    font-size: var(--font-size-heading-lg);
+}
+
+h3 {
+    font-size: var(--font-size-heading-md);
+}
+
+h4 {
+    font-size: var(--font-size-heading-sm);
+}
+
+p {
+    color: var(--color-text-secondary);
+}
+
+
+/* ==========================================
+   Form Elements
+   ========================================== */
+
+input,
+textarea,
+select {
+    color: var(--color-text-primary);
+    background-color: var(--color-surface);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--color-text-placeholder);
+}
+
+
+/* ==========================================
+   Focus Accessibility
+   ========================================== */
+
+:focus-visible {
+    outline: 3px solid rgb(34 197 94 / 0.3);
+    outline-offset: 2px;
+}
+
+
+/* ==========================================
+   Selection
+   ========================================== */
+
+::selection {
+    color: var(--color-text-inverse);
+    background-color: var(--color-primary);
+}

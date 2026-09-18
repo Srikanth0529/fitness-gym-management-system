@@ -1,0 +1,104 @@
+/* ==========================================
+   APPLICATION LAYOUT
+   ========================================== */
+
+.app-layout {
+    min-height: 100vh;
+
+    background-color: var(--color-content-background);
+}
+
+
+/* ==========================================
+   BODY
+   ========================================== */
+
+.app-layout__body {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+
+    padding-top: 64px;
+    padding-left: 260px;
+
+    background-color: var(--color-content-background);
+
+    transition: padding-left 0.25s ease;
+}
+
+
+/* ==========================================
+   COLLAPSED SIDEBAR
+   ========================================== */
+
+.app-layout--sidebar-collapsed .app-layout__body {
+    padding-left: 76px;
+}
+
+
+/* ==========================================
+   MAIN CONTENT
+   ========================================== */
+
+.app-layout__main {
+    flex: 1;
+
+    width: 100%;
+
+    background-color: var(--color-content-background);
+}
+
+
+/* ==========================================
+   CONTENT CONTAINER
+   ========================================== */
+
+.app-layout__content {
+    width: 100%;
+    max-width: 1200px;
+
+    min-height: calc(100vh - 120px);
+
+    margin: 0 auto;
+
+    padding: var(--spacing-8) var(--spacing-6);
+
+    background-color: var(--color-content-background);
+}
+
+
+/* ==========================================
+   TABLET
+   ========================================== */
+
+@media (max-width: 1023px) {
+    .app-layout__body {
+        padding-left: 0;
+    }
+
+    .app-layout--sidebar-collapsed .app-layout__body {
+        padding-left: 0;
+    }
+
+    .app-layout__content {
+        min-height: calc(100vh - 120px);
+    }
+}
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 639px) {
+    .app-layout__body {
+        padding-top: 56px;
+    }
+
+    .app-layout__content {
+        min-height: calc(100vh - 112px);
+
+        padding: var(--spacing-6) var(--spacing-4);
+    }
+}

@@ -1,0 +1,35 @@
+.select {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 var(--spacing-4);
+
+    border: var(--border-width-thin) solid var(--color-border-dark);
+    border-radius: var(--radius-md);
+
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+
+    font-size: var(--font-size-body-md);
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.select:hover:not(:disabled) {
+    border-color: var(--color-secondary-400);
+}
+
+.select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgb(34 197 94 / 0.12);
+    outline: none;
+}
+
+.select:disabled {
+    cursor: not-allowed;
+    background-color: var(--color-secondary-100);
+    color: var(--color-text-muted);
+}

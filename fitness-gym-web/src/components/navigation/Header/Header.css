@@ -1,0 +1,212 @@
+/* ==========================================
+   HEADER
+   ========================================== */
+
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    width: 100%;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 var(--spacing-6);
+
+    background-color: var(--color-header-background);
+    color: var(--color-header-text);
+
+    border-bottom: var(--border-width-thin) solid var(--color-header-border);
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* ==========================================
+   HEADER LEFT
+   ========================================== */
+
+.app-header__left {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+
+/* ==========================================
+   MENU BUTTON
+   ========================================== */
+
+.app-header__menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    margin-right: var(--spacing-3);
+
+    border: none;
+    border-radius: var(--radius-md);
+
+    background-color: transparent;
+    color: var(--color-header-text);
+
+    font-size: 1.25rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.app-header__menu-button:hover {
+    background-color: #1e293b;
+}
+
+.app-header__menu-button:focus-visible {
+    outline: var(--border-width-medium) solid var(--color-primary-400);
+    outline-offset: 2px;
+}
+
+
+/* ==========================================
+   BRAND
+   ========================================== */
+
+.app-header__brand {
+    display: flex;
+    align-items: baseline;
+    min-width: 0;
+}
+
+.app-header__brand-name {
+    color: var(--color-primary-400);
+
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+
+    line-height: var(--line-height-tight);
+
+    white-space: nowrap;
+}
+
+.app-header__brand-subtitle {
+    margin-left: var(--spacing-2);
+
+    color: #cbd5e1;
+
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-regular);
+
+    line-height: var(--line-height-normal);
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================
+   HEADER RIGHT
+   ========================================== */
+
+.app-header__right {
+    display: flex;
+    align-items: center;
+
+    gap: var(--spacing-4);
+
+    min-width: 0;
+}
+
+
+/* ==========================================
+   NOTIFICATION BUTTON
+   ========================================== */
+
+.app-header__notification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: var(--radius-full);
+
+    background-color: transparent;
+    color: #e2e8f0;
+
+    font-size: 1.1rem;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.app-header__notification:hover {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+
+.app-header__notification:focus-visible {
+    outline: var(--border-width-medium) solid var(--color-primary-400);
+    outline-offset: 2px;
+}
+
+
+/* ==========================================
+   TABLET
+   ========================================== */
+
+@media (max-width: 1023px) {
+    .app-header {
+        padding: 0 var(--spacing-4);
+    }
+}
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 639px) {
+    .app-header {
+        height: 56px;
+
+        padding: 0 var(--spacing-3);
+    }
+
+    .app-header__menu-button {
+        width: 36px;
+        height: 36px;
+
+        margin-right: var(--spacing-2);
+    }
+
+    .app-header__brand-name {
+        font-size: var(--font-size-lg);
+    }
+
+    .app-header__brand-subtitle {
+        display: none;
+    }
+
+    .app-header__right {
+        gap: var(--spacing-2);
+    }
+
+    .app-header__notification {
+        width: 36px;
+        height: 36px;
+    }
+}

@@ -1,0 +1,115 @@
+/* ==========================================
+   NAVIGATION ITEM
+   ========================================== */
+
+.navigation-item {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 44px;
+
+    padding: 0 var(--spacing-3);
+
+    border-radius: var(--radius-md);
+
+    color: var(--color-text-secondary);
+
+    font-size: var(--font-size-body-sm);
+    font-weight: var(--font-weight-medium);
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* ==========================================
+   HOVER
+   ========================================== */
+
+.navigation-item:hover {
+    background-color: var(--color-surface-secondary);
+
+    color: var(--color-text-primary);
+}
+
+
+/* ==========================================
+   ACTIVE
+   ========================================== */
+
+.navigation-item--active {
+    background-color: var(--color-primary-50);
+
+    color: var(--color-primary-700);
+
+    font-weight: var(--font-weight-semibold);
+}
+
+.navigation-item--active:hover {
+    background-color: var(--color-primary-50);
+
+    color: var(--color-primary-700);
+}
+
+
+/* ==========================================
+   ICON
+   ========================================== */
+
+.navigation-item__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    min-width: 24px;
+
+    margin-right: var(--spacing-3);
+
+    line-height: 0;
+}
+
+
+/* ==========================================
+   LABEL
+   ========================================== */
+
+.navigation-item__label {
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* ==========================================
+   FOCUS
+   ========================================== */
+
+.navigation-item:focus-visible {
+    outline: var(--border-width-medium) solid var(--color-primary-400);
+
+    outline-offset: 2px;
+}
+
+
+/* ==========================================
+   SIDEBAR COLLAPSED STATE
+   ========================================== */
+
+.sidebar--collapsed .navigation-item {
+    justify-content: center;
+}
+
+.sidebar--collapsed .navigation-item__icon {
+    margin-right: 0;
+}
+
+.sidebar--collapsed .navigation-item__label {
+    display: none;
+}

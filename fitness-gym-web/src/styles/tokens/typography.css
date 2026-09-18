@@ -1,0 +1,71 @@
+:root {
+    /* ==========================================
+       Font Family
+       ========================================== */
+
+    --font-family-primary:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    --font-family-monospace:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+
+    /* ==========================================
+       Font Sizes
+       ========================================== */
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+
+
+    /* ==========================================
+       Heading Sizes
+       ========================================== */
+
+    --font-size-heading-xl: 2.25rem;
+    --font-size-heading-lg: 1.875rem;
+    --font-size-heading-md: 1.5rem;
+    --font-size-heading-sm: 1.25rem;
+
+
+    /* ==========================================
+       Body Sizes
+       ========================================== */
+
+    --font-size-body-lg: 1.125rem;
+    --font-size-body-md: 1rem;
+    --font-size-body-sm: 0.875rem;
+    --font-size-body-xs: 0.75rem;
+
+
+    /* ==========================================
+       Font Weights
+       ========================================== */
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+
+    /* ==========================================
+       Line Heights
+       ========================================== */
+
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+}

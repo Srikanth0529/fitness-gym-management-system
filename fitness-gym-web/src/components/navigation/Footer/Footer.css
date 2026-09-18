@@ -1,0 +1,98 @@
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.app-footer {
+    width: 100%;
+
+    margin-top: auto;
+
+    background-color: var(--color-footer-background);
+
+    border-top: var(--border-width-thin) solid var(--color-footer-border);
+}
+
+
+/* ==========================================
+   FOOTER CONTENT
+   ========================================== */
+
+.app-footer__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 1200px;
+
+    min-height: 56px;
+
+    margin: 0 auto;
+
+    padding: var(--spacing-3) var(--spacing-6);
+
+    color: var(--color-footer-text);
+
+    font-size: var(--font-size-body-xs);
+}
+
+
+/* ==========================================
+   FOOTER LINKS
+   ========================================== */
+
+.app-footer__links {
+    display: flex;
+    align-items: center;
+
+    gap: var(--spacing-5);
+}
+
+.app-footer__links button {
+    padding: 0;
+
+    border: none;
+
+    background-color: transparent;
+
+    color: var(--color-footer-text);
+
+    font-size: var(--font-size-body-xs);
+    font-weight: var(--font-weight-regular);
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+.app-footer__links button:hover {
+    color: var(--color-footer-hover);
+}
+
+.app-footer__links button:focus-visible {
+    outline: var(--border-width-medium) solid var(--color-primary-400);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 639px) {
+    .app-footer__content {
+        flex-direction: column;
+        justify-content: center;
+
+        gap: var(--spacing-2);
+
+        min-height: 72px;
+
+        padding: var(--spacing-4);
+    }
+
+    .app-footer__links {
+        gap: var(--spacing-4);
+    }
+}

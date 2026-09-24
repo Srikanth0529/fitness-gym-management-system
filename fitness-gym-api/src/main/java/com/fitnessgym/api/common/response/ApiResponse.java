@@ -1,13 +1,17 @@
 package com.fitnessgym.api.common.response;
 
 import java.time.LocalDateTime;
+import java.util.Map;
 
 public class ApiResponse<T> {
 
     private boolean success;
     private String message;
     private T data;
+    private String errorCode;
     private LocalDateTime timestamp;
+    private String path;
+    private Map<String, String> errors;
 
     public ApiResponse() {
     }
@@ -35,8 +39,20 @@ public class ApiResponse<T> {
         return data;
     }
 
+    public String getErrorCode() {
+        return errorCode;
+    }
+
     public LocalDateTime getTimestamp() {
         return timestamp;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public Map<String, String> getErrors() {
+        return errors;
     }
 
     public static <T> ApiResponse<T> success(
@@ -69,4 +85,15 @@ public class ApiResponse<T> {
                 null
         );
     }
+public void setErrorCode(String errorCode) {
+    this.errorCode = errorCode;
+}
+
+public void setPath(String path) {
+    this.path = path;
+}
+
+public void setErrors(Map<String, String> errors) {
+    this.errors = errors;
+}
 }

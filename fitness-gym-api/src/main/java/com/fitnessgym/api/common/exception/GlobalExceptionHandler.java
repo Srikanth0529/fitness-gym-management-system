@@ -8,6 +8,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
@@ -15,43 +16,69 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ApiResponse<Void>> handleResourceNotFound(
-            ResourceNotFoundException exception
+            ResourceNotFoundException exception,
+            HttpServletRequest request
     ) {
+
+        ApiResponse<Void> response = ApiResponse.error(
+                exception.getMessage()
+        );
+
+        response.setErrorCode("RESOURCE_NOT_FOUND");
+        response.setPath(request.getRequestURI());
 
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
-                .body(ApiResponse.error(exception.getMessage()));
+                .body(response);
     }
 
 
     @ExceptionHandler(BusinessException.class)
     public ResponseEntity<ApiResponse<Void>> handleBusinessException(
-            BusinessException exception
+            BusinessException exception,
+            HttpServletRequest request
     ) {
+
+        ApiResponse<Void> response = ApiResponse.error(
+                exception.getMessage()
+        );
+
+        response.setErrorCode("BUSINESS_ERROR");
+        response.setPath(request.getRequestURI());
 
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(ApiResponse.error(exception.getMessage()));
+                .body(response);
     }
 
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiResponse<Void>> handleValidationException(
-            MethodArgumentNotValidException exception
+            MethodArgumentNotValidException exception,
+            HttpServletRequest request
     ) {
 
-        String message = exception
+        Map<String, String> errors = exception
                 .getBindingResult()
                 .getFieldErrors()
                 .stream()
-                .map(error ->
-                        error.getField() + ": " + error.getDefaultMessage()
-                )
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.toMap(
+                        error -> error.getField(),
+                        error -> error.getDefaultMessage(),
+                        (existing, replacement) -> existing
+                ));
+
+        ApiResponse<Void> response = ApiResponse.error(
+                "Validation failed"
+        );
+
+        response.setErrorCode("VALIDATION_ERROR");
+        response.setErrors(errors);
+        response.setPath(request.getRequestURI());
 
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(ApiResponse.error(message));
+                .body(response);
     }
 
 
@@ -61,12 +88,15 @@ public class GlobalExceptionHandler {
             HttpServletRequest request
     ) {
 
+        ApiResponse<Void> response = ApiResponse.error(
+                "An unexpected error occurred"
+        );
+
+        response.setErrorCode("INTERNAL_SERVER_ERROR");
+        response.setPath(request.getRequestURI());
+
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(
-                        ApiResponse.error(
-                                "An unexpected error occurred"
-                        )
-                );
+                .body(response);
     }
 }

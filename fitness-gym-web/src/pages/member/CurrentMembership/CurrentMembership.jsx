@@ -154,7 +154,7 @@ const CurrentMembership = () => {
                             </span>
 
                             <strong>
-                                #{subscription.subscriptionId}
+                                {subscription.subscriptionId}
                             </strong>
                         </div>
 
@@ -164,7 +164,7 @@ const CurrentMembership = () => {
                             </span>
 
                             <strong>
-                                #{subscription.planId}
+                                {subscription.planId}
                             </strong>
                         </div>
 

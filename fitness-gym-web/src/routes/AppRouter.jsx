@@ -11,38 +11,68 @@ import AuthLayout from "../layouts/AuthLayout/AuthLayout";
 import AppLayout from "../layouts/AppLayout/AppLayout";
 
 import ProfilePage from "../pages/member/ProfilePage/ProfilePage";
+
 import MembershipPlans from "../pages/member/MembershipPlans/MembershipPlans";
 import SubscribeMembership from "../pages/member/SubscribeMembership/SubscribeMembership";
 import CurrentMembership from "../pages/member/CurrentMembership/CurrentMembership";
+
 import Classes from "../pages/member/Classes/Classes";
+import MemberBookings from "../pages/member/Bookings/Bookings";
 
 import CreateClass from "../pages/admin/CreateClass/CreateClass";
+
+import AdminBookings from "../pages/admin/Bookings/Bookings";
+
+import TrainerBookings from "../pages/trainer/Bookings/Bookings";
+
+import AdminMembers from "../pages/admin/Members/Members";
+import AdminTrainers from "../pages/admin/Trainers/Trainers";
+
+import TrainerClients from "../pages/trainer/Clients/Clients";
 
 import ProtectedRoute from "./ProtectedRoute";
 import RoleRoute from "./RoleRoute";
 
-function Placeholder({ title }) {
+
+function Placeholder({
+    title,
+}) {
+
     return (
+
         <section>
-            <h1>{title}</h1>
+
+            <h1>
+                {title}
+            </h1>
 
             <p
                 style={{
-                    marginTop: "var(--spacing-4)",
+                    marginTop:
+                        "var(--spacing-4)",
                 }}
             >
                 This page will be implemented in a
                 later development part.
             </p>
+
         </section>
     );
 }
 
+
 function AppRouter() {
+
     return (
+
         <Routes>
-            {/* Public Routes */}
+
+            {/* =====================================================
+                PUBLIC ROUTES
+            ====================================================== */}
+
             <Route element={<AuthLayout />}>
+
                 <Route
                     path="/login"
                     element={<LoginPage />}
@@ -52,13 +82,22 @@ function AppRouter() {
                     path="/register"
                     element={<RegisterPage />}
                 />
+
             </Route>
 
-            {/* Protected Routes */}
+
+            {/* =====================================================
+                PROTECTED ROUTES
+            ====================================================== */}
+
             <Route element={<ProtectedRoute />}>
+
                 <Route element={<AppLayout />}>
 
-                    {/* Common Dashboard */}
+                    {/* =================================================
+                        COMMON DASHBOARD
+                    ================================================== */}
+
                     <Route
                         path="/dashboard"
                         element={
@@ -68,52 +107,87 @@ function AppRouter() {
                         }
                     />
 
-                    {/* =========================
+
+                    {/* =================================================
                         MEMBER ROUTES
-                    ========================== */}
+                    ================================================== */}
+
                     <Route
                         element={
                             <RoleRoute
-                                allowedRoles={["MEMBER"]}
+                                allowedRoles={[
+                                    "MEMBER",
+                                ]}
                             />
                         }
                     >
+
                         <Route
                             path="/member/profile"
-                            element={<ProfilePage />}
+                            element={
+                                <ProfilePage />
+                            }
                         />
 
                         <Route
                             path="/member/membership-plans"
-                            element={<MembershipPlans />}
+                            element={
+                                <MembershipPlans />
+                            }
                         />
 
                         <Route
                             path="/member/subscribe"
-                            element={<SubscribeMembership />}
+                            element={
+                                <SubscribeMembership />
+                            }
                         />
 
                         <Route
                             path="/member/membership"
-                            element={<CurrentMembership />}
+                            element={
+                                <CurrentMembership />
+                            }
                         />
 
                         <Route
                             path="/member/classes"
-                            element={<Classes />}
+                            element={
+                                <Classes />
+                            }
                         />
+
+                        <Route
+                            path="/member/bookings"
+                            element={
+                                <MemberBookings />
+                            }
+                        />
+
                     </Route>
 
-                    {/* =========================
+
+                    {/* =================================================
                         TRAINER ROUTES
-                    ========================== */}
+                    ================================================== */}
+
                     <Route
                         element={
                             <RoleRoute
-                                allowedRoles={["TRAINER"]}
+                                allowedRoles={[
+                                    "TRAINER",
+                                ]}
                             />
                         }
                     >
+
+                        <Route
+                            path="/trainer/profile"
+                            element={
+                                <ProfilePage />
+                            }
+                        />
+
                         <Route
                             path="/trainer/dashboard"
                             element={
@@ -123,29 +197,58 @@ function AppRouter() {
                             }
                         />
 
-                        {/* Sprint 2 - Create Class */}
                         <Route
                             path="/trainer/classes"
-                            element={<CreateClass />}
+                            element={
+                                <CreateClass />
+                            }
                         />
 
-                        {/* Optional direct create URL */}
                         <Route
                             path="/trainer/classes/create"
-                            element={<CreateClass />}
+                            element={
+                                <CreateClass />
+                            }
                         />
+
+                        <Route
+                            path="/trainer/clients"
+                            element={
+                                <TrainerClients />
+                            }
+                        />
+
+                        <Route
+                            path="/trainer/bookings"
+                            element={
+                                <TrainerBookings />
+                            }
+                        />
+
                     </Route>
 
-                    {/* =========================
+
+                    {/* =================================================
                         ADMIN ROUTES
-                    ========================== */}
+                    ================================================== */}
+
                     <Route
                         element={
                             <RoleRoute
-                                allowedRoles={["ADMIN"]}
+                                allowedRoles={[
+                                    "ADMIN",
+                                ]}
                             />
                         }
                     >
+
+                        <Route
+                            path="/admin/profile"
+                            element={
+                                <ProfilePage />
+                            }
+                        />
+
                         <Route
                             path="/admin/dashboard"
                             element={
@@ -155,20 +258,48 @@ function AppRouter() {
                             }
                         />
 
-                        {/* Sprint 2 - Create Class */}
+                        <Route
+                            path="/admin/members"
+                            element={
+                                <AdminMembers />
+                            }
+                        />
+
+                        <Route
+                            path="/admin/trainers"
+                            element={
+                                <AdminTrainers />
+                            }
+                        />
+
                         <Route
                             path="/admin/classes"
-                            element={<CreateClass />}
+                            element={
+                                <CreateClass />
+                            }
                         />
 
-                        {/* Direct create URL */}
                         <Route
                             path="/admin/classes/create"
-                            element={<CreateClass />}
+                            element={
+                                <CreateClass />
+                            }
                         />
+
+                        <Route
+                            path="/admin/bookings"
+                            element={
+                                <AdminBookings />
+                            }
+                        />
+
                     </Route>
 
-                    {/* Unauthorized */}
+
+                    {/* =================================================
+                        UNAUTHORIZED
+                    ================================================== */}
+
                     <Route
                         path="/unauthorized"
                         element={
@@ -177,10 +308,16 @@ function AppRouter() {
                             />
                         }
                     />
+
                 </Route>
+
             </Route>
 
-            {/* Default Route */}
+
+            {/* =====================================================
+                DEFAULT ROUTE
+            ====================================================== */}
+
             <Route
                 path="/"
                 element={
@@ -191,7 +328,11 @@ function AppRouter() {
                 }
             />
 
-            {/* Unknown Route */}
+
+            {/* =====================================================
+                UNKNOWN ROUTE
+            ====================================================== */}
+
             <Route
                 path="*"
                 element={
@@ -201,8 +342,10 @@ function AppRouter() {
                     />
                 }
             />
+
         </Routes>
     );
 }
+
 
 export default AppRouter;

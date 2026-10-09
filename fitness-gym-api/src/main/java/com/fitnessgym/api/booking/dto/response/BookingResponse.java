@@ -15,6 +15,12 @@ public class BookingResponse {
 
     private Long memberId;
 
+    private String memberName;
+
+    private String memberEmail;
+
+    private String memberPhone;
+
     private Long occurrenceId;
 
     private Long classId;

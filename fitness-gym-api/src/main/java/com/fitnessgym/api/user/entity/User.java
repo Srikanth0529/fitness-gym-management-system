@@ -50,6 +50,24 @@ public class User extends BaseAuditEntity {
     )
     private String passwordHash;
 
+    @Column(
+            name = "first_name",
+            length = 100
+    )
+    private String firstName;
+
+    @Column(
+            name = "last_name",
+            length = 100
+    )
+    private String lastName;
+
+    @Column(
+            name = "phone",
+            length = 20
+    )
+    private String phone;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(
             name = "role_id",

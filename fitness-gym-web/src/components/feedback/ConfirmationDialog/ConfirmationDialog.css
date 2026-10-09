@@ -1,0 +1,142 @@
+.confirmation-dialog__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--spacing-4);
+
+    background: rgba(15, 23, 42, 0.5);
+}
+
+.confirmation-dialog {
+    width: 100%;
+    max-width: 480px;
+
+    background: var(--color-surface);
+    border: var(--border-width-thin) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+
+    overflow: hidden;
+}
+
+.confirmation-dialog__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: var(--spacing-6) var(--spacing-6) 0;
+}
+
+.confirmation-dialog__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: var(--radius-full);
+
+    color: var(--color-warning);
+    background: var(--color-warning-light);
+}
+
+.confirmation-dialog__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: var(--radius-md);
+
+    color: var(--color-text-muted);
+    background: transparent;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.confirmation-dialog__close:hover:not(:disabled) {
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+}
+
+.confirmation-dialog__close:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.confirmation-dialog__content {
+    padding: var(--spacing-4) var(--spacing-6) var(--spacing-6);
+}
+
+.confirmation-dialog__title {
+    margin: 0;
+
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-heading-md);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+
+    color: var(--color-text-primary);
+}
+
+.confirmation-dialog__message {
+    margin: var(--spacing-3) 0 0;
+
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-body-md);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-normal);
+
+    color: var(--color-text-secondary);
+}
+
+.confirmation-dialog__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-3);
+
+    padding: var(--spacing-4) var(--spacing-6);
+
+    border-top: var(--border-width-thin) solid var(--color-border-light);
+    background: var(--color-background-secondary);
+}
+
+@media (max-width: 640px) {
+    .confirmation-dialog__overlay {
+        align-items: flex-end;
+        padding: 0;
+    }
+
+    .confirmation-dialog {
+        max-width: none;
+
+        border-right: none;
+        border-bottom: none;
+        border-left: none;
+
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+
+    .confirmation-dialog__actions {
+        flex-direction: column-reverse;
+    }
+
+    .confirmation-dialog__actions .button {
+        width: 100%;
+    }
+}

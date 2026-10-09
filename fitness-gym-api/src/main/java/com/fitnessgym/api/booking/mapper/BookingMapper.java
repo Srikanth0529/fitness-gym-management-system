@@ -1,3 +1,4 @@
+
 package com.fitnessgym.api.booking.mapper;
 
 import com.fitnessgym.api.booking.dto.response.BookingResponse;
@@ -11,6 +12,18 @@ public interface BookingMapper {
     @Mapping(
             target = "memberId",
             source = "member.id"
+    )
+    @Mapping(
+            target = "memberName",
+            expression = "java(booking.getMember().getFirstName() + \" \" + booking.getMember().getLastName())"
+    )
+    @Mapping(
+            target = "memberEmail",
+            source = "member.user.email"
+    )
+    @Mapping(
+            target = "memberPhone",
+            source = "member.phone"
     )
     @Mapping(
             target = "occurrenceId",
@@ -32,5 +45,7 @@ public interface BookingMapper {
             target = "endTime",
             source = "occurrence.endTime"
     )
-    BookingResponse toResponse(ClassBooking booking);
+    BookingResponse toResponse(
+            ClassBooking booking
+    );
 }

@@ -1,9 +1,9 @@
 package com.fitnessgym.api.user.service;
 
-import com.fitnessgym.api.common.enums.AccountStatus;
 import com.fitnessgym.api.common.enums.RoleName;
 import com.fitnessgym.api.common.exception.BusinessException;
 import com.fitnessgym.api.common.exception.ResourceNotFoundException;
+import com.fitnessgym.api.user.dto.request.UpdateUserRequest;
 import com.fitnessgym.api.user.dto.response.UserResponse;
 import com.fitnessgym.api.user.entity.Role;
 import com.fitnessgym.api.user.entity.User;
@@ -37,6 +37,75 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
+    public UserResponse getMyProfile(Long authenticatedUserId) {
+
+        User user = userRepository.findById(authenticatedUserId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException(
+                                "User not found with id: "
+                                        + authenticatedUserId
+                        )
+                );
+
+        return userMapper.toResponse(user);
+    }
+
+    public UserResponse updateMyProfile(
+            Long authenticatedUserId,
+            Long requestedUserId,
+            UpdateUserRequest request
+    ) {
+
+        if (!authenticatedUserId.equals(requestedUserId)) {
+            throw new BusinessException(
+                    "You are not authorized to update this user profile"
+            );
+        }
+
+        User user = userRepository.findById(authenticatedUserId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException(
+                                "User not found with id: "
+                                        + authenticatedUserId
+                        )
+                );
+
+        if (request.getEmail() != null
+                && !request.getEmail().isBlank()
+                && !user.getEmail().equalsIgnoreCase(
+                        request.getEmail()
+                )) {
+
+            if (userRepository.countByEmail(
+                    request.getEmail()
+            ) > 0) {
+
+                throw new BusinessException(
+                        "Email is already registered"
+                );
+            }
+
+            user.setEmail(request.getEmail());
+        }
+
+        if (request.getFirstName() != null) {
+            user.setFirstName(request.getFirstName());
+        }
+
+        if (request.getLastName() != null) {
+            user.setLastName(request.getLastName());
+        }
+
+        if (request.getPhone() != null) {
+            user.setPhone(request.getPhone());
+        }
+
+        User updatedUser = userRepository.save(user);
+
+        return userMapper.toResponse(updatedUser);
+    }
+
+    @Transactional(readOnly = true)
     public User getUserEntityByEmail(String email) {
 
         return userRepository.findByEmail(email)
@@ -58,8 +127,12 @@ public class UserService {
     }
 
     public void validateEmailNotExists(String email) {
-    if (userRepository.countByEmail(email) > 0) {
-        throw new BusinessException("Email is already registered");
+
+        if (userRepository.countByEmail(email) > 0) {
+
+            throw new BusinessException(
+                    "Email is already registered"
+            );
+        }
     }
-}
 }

@@ -53,13 +53,13 @@ function UserMenu() {
             return;
         }
 
-        if (user?.role === "ADMIN") {
-            navigate("/admin/dashboard");
+        if (user?.role === "TRAINER") {
+            navigate("/trainer/profile");
             return;
         }
 
-        if (user?.role === "TRAINER") {
-            navigate("/trainer/dashboard");
+        if (user?.role === "ADMIN") {
+            navigate("/admin/profile");
         }
     };
 
@@ -135,12 +135,11 @@ function UserMenu() {
                     <button
                         type="button"
                         className="user-menu__item"
-                        onClick={
-                            handleProfile
-                        }
+                        onClick={handleProfile}
                         role="menuitem"
                     >
                         <span>◉</span>
+
                         <span>
                             My Profile
                         </span>
@@ -155,6 +154,7 @@ function UserMenu() {
                         role="menuitem"
                     >
                         <span>⚙</span>
+
                         <span>
                             Settings
                         </span>
@@ -165,12 +165,11 @@ function UserMenu() {
                     <button
                         type="button"
                         className="user-menu__item user-menu__item--logout"
-                        onClick={
-                            handleLogout
-                        }
+                        onClick={handleLogout}
                         role="menuitem"
                     >
                         <span>↪</span>
+
                         <span>
                             Logout
                         </span>

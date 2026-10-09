@@ -20,5 +20,11 @@ public interface MemberMapper {
             target = "approvalStatus",
             expression = "java(member.getApprovalStatus().name())"
     )
-    MemberResponse toResponse(Member member);
+    @Mapping(
+            target = "accountStatus",
+            expression = "java(member.getUser().getAccountStatus().name())"
+    )
+    MemberResponse toResponse(
+            Member member
+    );
 }

@@ -1,177 +1,883 @@
+/* =========================================================
+   PAGE
+========================================================= */
+
 .create-class {
     width: 100%;
     min-height: 100%;
+    background: var(--color-content-background);
 }
+
 
 .create-class__container {
     width: 100%;
-    max-width: 900px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 32px 24px;
+    padding: var(--spacing-8) var(--spacing-6);
 }
 
+
+/* =========================================================
+   HEADER
+========================================================= */
+
 .create-class__header {
-    margin-bottom: 32px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--spacing-6);
+    margin-bottom: var(--spacing-8);
 }
+
+
+.create-class__header--form {
+    display: block;
+}
+
 
 .create-class__eyebrow {
     margin: 0 0 8px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-primary, #2563eb);
-    letter-spacing: 0.04em;
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
+
 .create-class__title {
     margin: 0;
-    font-size: 2rem;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-heading-lg);
     font-weight: 700;
-    color: var(--color-text-primary, #111827);
+    line-height: 1.2;
 }
 
+
 .create-class__description {
+    max-width: 700px;
     margin: 10px 0 0;
-    color: var(--color-text-secondary, #6b7280);
+    color: var(--color-text-secondary);
     line-height: 1.6;
 }
 
-.create-class__form {
-    padding: 28px;
-    border: 1px solid var(--color-border, #e5e7eb);
-    border-radius: var(--radius-lg, 12px);
-    background: var(--color-surface, #ffffff);
-    box-shadow: var(
-        --shadow-sm,
-        0 1px 3px rgba(0, 0, 0, 0.08)
-    );
-}
 
-.create-class__field {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 20px;
-}
+/* =========================================================
+   BACK BUTTON
+========================================================= */
 
-.create-class__field label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-text-primary, #111827);
-}
-
-.create-class__field input,
-.create-class__field textarea {
-    width: 100%;
-    padding: 11px 13px;
-    border: 1px solid var(--color-border, #d1d5db);
-    border-radius: var(--radius-md, 8px);
+.create-class__back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: var(--spacing-6);
+    padding: 0;
+    border: 0;
+    color: var(--color-text-secondary);
+    background: transparent;
     font: inherit;
-    color: var(--color-text-primary, #111827);
-    background: var(--color-surface, #ffffff);
-    box-sizing: border-box;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-.create-class__field input:focus,
-.create-class__field textarea:focus {
-    outline: none;
-    border-color: var(--color-primary, #2563eb);
-    box-shadow: 0 0 0 2px
-        rgba(37, 99, 235, 0.12);
+
+.create-class__back-button:hover:not(:disabled) {
+    color: var(--color-primary);
 }
 
-.create-class__field input:disabled,
-.create-class__field textarea:disabled {
-    opacity: 0.7;
+
+.create-class__back-button:disabled {
+    opacity: 0.5;
     cursor: not-allowed;
 }
 
-.create-class__field textarea {
-    resize: vertical;
-    min-height: 110px;
+
+.create-class__form-heading {
+    margin-bottom: 0;
 }
 
-.create-class__form-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-}
+
+/* =========================================================
+   MESSAGES
+========================================================= */
 
 .create-class__message {
-    margin-bottom: 20px;
-    padding: 12px 16px;
-    border-radius: var(--radius-md, 8px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
+    padding: 14px 16px;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
 }
+
+
+.create-class__message button {
+    border: 0;
+    color: inherit;
+    background: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
 
 .create-class__message--error {
     color: var(--color-error-text, #991b1b);
     background: var(--color-error-bg, #fee2e2);
 }
 
+
 .create-class__message--success {
     color: var(--color-success-text, #166534);
     background: var(--color-success-bg, #dcfce7);
 }
 
-.create-class__actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    margin-top: 28px;
-}
+
+/* =========================================================
+   PRIMARY / SECONDARY BUTTONS
+========================================================= */
 
 .create-class__primary-button,
 .create-class__secondary-button {
-    min-width: 150px;
-    padding: 11px 18px;
-    border-radius: var(--radius-md, 8px);
+    min-height: 42px;
+    padding: 10px 18px;
+    border-radius: var(--radius-md);
     font: inherit;
+    font-size: 0.88rem;
     font-weight: 600;
     cursor: pointer;
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease,
+        background 0.15s ease;
 }
+
 
 .create-class__primary-button {
-    border: 0;
+    border: 1px solid var(--color-primary);
     color: var(--color-button-primary-text, #ffffff);
-    background: var(--color-primary, #2563eb);
+    background: var(--color-primary);
 }
 
-.create-class__secondary-button {
-    border: 1px solid var(--color-border, #d1d5db);
-    color: var(--color-text-primary, #111827);
-    background: var(--color-surface, #ffffff);
+
+.create-class__primary-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    opacity: 0.92;
 }
+
+
+.create-class__secondary-button {
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    background: var(--color-surface);
+}
+
+
+.create-class__secondary-button:hover:not(:disabled) {
+    background: var(--color-content-background);
+}
+
 
 .create-class__primary-button:disabled,
 .create-class__secondary-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+
+.create-class__create-button {
+    min-width: 145px;
+}
+
+
+/* =========================================================
+   CLASS LIST
+========================================================= */
+
+.create-class__list-section {
+    width: 100%;
+}
+
+
+.create-class__list-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--spacing-5);
+    margin-bottom: var(--spacing-5);
+}
+
+
+.create-class__section-label {
+    margin: 0 0 5px;
+    color: var(--color-text-secondary);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+
+.create-class__list-header h2 {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-heading-md);
+}
+
+
+.create-class__list-header p:last-child {
+    margin: 6px 0 0;
+    color: var(--color-text-secondary);
+    font-size: 0.88rem;
+}
+
+
+/* =========================================================
+   CLASS GRID
+========================================================= */
+
+.class-management__grid {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-5);
+}
+
+
+.managed-class {
+    padding: var(--spacing-5);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.managed-class:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 24px
+        rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================================
+   CLASS HEADER
+========================================================= */
+
+.managed-class__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-4);
+}
+
+
+.managed-class__label {
+    margin: 0 0 5px;
+    color: var(--color-text-secondary);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+
+.managed-class__name {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: 1.15rem;
+    line-height: 1.3;
+}
+
+
+.managed-class__status {
+    flex-shrink: 0;
+    padding: 5px 9px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+.managed-class__status--active {
+    color: var(--color-success-text, #166534);
+    background: var(--color-success-bg, #dcfce7);
+}
+
+
+.managed-class__status--cancelled {
+    color: var(--color-error-text, #991b1b);
+    background: var(--color-error-bg, #fee2e2);
+}
+
+
+/* =========================================================
+   CLASS DESCRIPTION
+========================================================= */
+
+.managed-class__description {
+    min-height: 44px;
+    margin: var(--spacing-4) 0;
+    color: var(--color-text-secondary);
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   CLASS DETAILS
+========================================================= */
+
+.managed-class__details {
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-5);
+}
+
+
+.managed-class__details > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+
+.managed-class__details span {
+    color: var(--color-text-secondary);
+    font-size: 0.72rem;
+}
+
+
+.managed-class__details strong {
+    overflow: hidden;
+    color: var(--color-text-primary);
+    font-size: 0.84rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   CLASS ACTIONS
+========================================================= */
+
+.managed-class__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: var(--spacing-5);
+}
+
+
+.class-action-button {
+    min-height: 36px;
+    padding: 7px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-primary);
+    background: var(--color-surface);
+    font: inherit;
+    font-size: 0.77rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+
+
+.class-action-button:hover:not(:disabled) {
+    opacity: 0.8;
+}
+
+
+.class-action-button--primary {
+    border-color: var(--color-primary);
+    color: var(--color-button-primary-text, #ffffff);
+    background: var(--color-primary);
+}
+
+
+.class-action-button--danger {
+    border-color: var(--color-error, #dc2626);
+    color: var(--color-error-text, #991b1b);
+    background: var(--color-error-bg, #fee2e2);
+}
+
+
+.class-action-button--success {
+    border-color: var(--color-success, #16a34a);
+    color: var(--color-success-text, #166534);
+    background: var(--color-success-bg, #dcfce7);
+}
+
+
+.class-action-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   OCCURRENCE SECTION
+========================================================= */
+
+.managed-class__schedule {
+    padding-top: var(--spacing-5);
+    border-top: 1px solid var(--color-border);
+}
+
+
+.managed-class__schedule-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-4);
+}
+
+
+.managed-class__schedule-header h4 {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: 0.92rem;
+}
+
+
+.managed-class__schedule-header p {
+    margin: 4px 0 0;
+    color: var(--color-text-secondary);
+    font-size: 0.75rem;
+}
+
+
+.managed-class__schedule-header > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 25px;
+    min-height: 25px;
+    padding: 3px 7px;
+    border-radius: 999px;
+    color: var(--color-text-primary);
+    background: var(--color-content-background);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   OCCURRENCE LIST
+========================================================= */
+
+.managed-occurrence-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.managed-occurrence {
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-content-background);
+}
+
+
+.managed-occurrence__information {
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+
+.managed-occurrence__information > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+
+.managed-occurrence__information span {
+    color: var(--color-text-secondary);
+    font-size: 0.7rem;
+}
+
+
+.managed-occurrence__information strong {
+    color: var(--color-text-primary);
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+
+
+.managed-occurrence__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+
+.managed-class__empty {
+    margin: 0;
+    padding: 4px 0;
+    color: var(--color-text-secondary);
+    font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   FORM PAGE
+========================================================= */
+
+.create-class__form-page {
+    width: 100%;
+    min-height: 500px;
+}
+
+
+.create-class__form-card {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(
+        24px,
+        5vw,
+        48px
+    );
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow:
+        0 8px 30px
+        rgba(0, 0, 0, 0.04);
+}
+
+
+.create-class__form-card-header {
+    margin-bottom: var(--spacing-8);
+    padding-bottom: var(--spacing-5);
+    border-bottom: 1px solid var(--color-border);
+}
+
+
+.create-class__form-card-header h2 {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: 1.35rem;
+}
+
+
+.create-class__form-card-header p:last-child {
+    margin: 6px 0 0;
+    color: var(--color-text-secondary);
+    font-size: 0.86rem;
+}
+
+
+.create-class__form-label {
+    margin: 0 0 7px;
+    color: var(--color-primary);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.create-class__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-5);
+}
+
+
+.create-class__form-row {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-5);
+}
+
+
+.create-class__field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+.create-class__field label {
+    color: var(--color-text-primary);
+    font-size: 0.84rem;
+    font-weight: 600;
+}
+
+
+.create-class__field input,
+.create-class__field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    outline: none;
+    color: var(--color-text-primary);
+    background: var(--color-background, #ffffff);
+    font: inherit;
+    font-size: 0.9rem;
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.create-class__field textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+.create-class__field input::placeholder,
+.create-class__field textarea::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+}
+
+
+.create-class__field input:focus,
+.create-class__field textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow:
+        0 0 0 3px
+        color-mix(
+            in srgb,
+            var(--color-primary) 12%,
+            transparent
+        );
+}
+
+
+.create-class__field input:disabled,
+.create-class__field textarea:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
 
-@media (max-width: 640px) {
-    .create-class__container {
-        padding: 24px 16px;
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.create-class__form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: var(--spacing-3);
+    padding-top: var(--spacing-5);
+    border-top: 1px solid var(--color-border);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.create-class__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+    padding: 40px 20px;
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    background: var(--color-surface);
+}
+
+
+.create-class__empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    color: var(--color-button-primary-text, #ffffff);
+    background: var(--color-primary);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+
+.create-class__empty h3 {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: 1.05rem;
+}
+
+
+.create-class__empty p {
+    max-width: 400px;
+    margin: 8px 0 20px;
+    color: var(--color-text-secondary);
+    font-size: 0.86rem;
+}
+
+
+/* =========================================================
+   LOADING STATE
+========================================================= */
+
+.create-class__state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    color: var(--color-text-secondary);
+}
+
+
+.create-class__state p {
+    margin-top: 14px;
+    font-size: 0.88rem;
+}
+
+
+.create-class__loader {
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation:
+        create-class-spin
+        0.8s linear infinite;
+}
+
+
+@keyframes create-class-spin {
+
+    to {
+        transform: rotate(360deg);
     }
 
-    .create-class__title {
-        font-size: 1.6rem;
-    }
+}
 
-    .create-class__form {
-        padding: 20px;
-    }
 
-    .create-class__form-row {
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .class-management__grid {
         grid-template-columns: 1fr;
-        gap: 0;
     }
 
-    .create-class__actions {
-        flex-direction: column-reverse;
+
+    .managed-occurrence__information {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
-    .create-class__primary-button,
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+    .create-class__container {
+        padding:
+            var(--spacing-5)
+            var(--spacing-4);
+    }
+
+
+    .create-class__header {
+        align-items: stretch;
+        flex-direction: column;
+        gap: var(--spacing-4);
+        margin-bottom: var(--spacing-6);
+    }
+
+
+    .create-class__create-button {
+        width: 100%;
+    }
+
+
+    .create-class__list-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+
+    .create-class__list-header
     .create-class__secondary-button {
         width: 100%;
     }
+
+
+    .create-class__form-card {
+        padding: 22px 18px;
+    }
+
+
+    .create-class__form-row {
+        grid-template-columns: 1fr;
+    }
+
+
+    .managed-class__details {
+        grid-template-columns: 1fr;
+    }
+
+
+    .managed-occurrence__information {
+        grid-template-columns: 1fr;
+    }
+
+
+    .managed-class__actions,
+    .managed-occurrence__actions {
+        flex-direction: column;
+    }
+
+
+    .class-action-button {
+        width: 100%;
+    }
+
+
+    .create-class__form-actions {
+        flex-direction: column-reverse;
+    }
+
+
+    .create-class__form-actions
+    .create-class__primary-button,
+    .create-class__form-actions
+    .create-class__secondary-button {
+        width: 100%;
+    }
+
 }

@@ -1,0 +1,456 @@
+
+.admin-members,
+.admin-trainers {
+    width: 100%;
+    min-height: 100%;
+    background: var(--color-content-background);
+}
+
+.admin-members__container,
+.admin-trainers__container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: var(--spacing-8, 32px) var(--spacing-6, 24px);
+    box-sizing: border-box;
+}
+
+.admin-members__header,
+.admin-trainers__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.admin-members__eyebrow,
+.admin-trainers__eyebrow {
+    margin: 0 0 8px;
+    color: var(--color-primary);
+    font-size: var(--font-size-sm, 13px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.admin-members__header h1,
+.admin-trainers__header h1 {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-heading-lg, 28px);
+}
+
+.admin-members__header p:last-child,
+.admin-trainers__header p:last-child {
+    margin: 10px 0 0;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+.admin-members__count,
+.admin-trainers__count {
+    flex-shrink: 0;
+    padding: 12px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md, 8px);
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    font-weight: 700;
+}
+
+.admin-members__message,
+.admin-trainers__message {
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    line-height: 1.5;
+}
+
+.admin-members__message--error,
+.admin-trainers__message--error {
+    color: var(--color-error-text, #991b1b);
+    background: var(--color-error-bg, #fee2e2);
+}
+
+.admin-members__message--success,
+.admin-trainers__message--success {
+    color: var(--color-success-text, #166534);
+    background: var(--color-success-bg, #dcfce7);
+}
+
+.admin-members__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.admin-members__tabs button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-members__tabs button.is-active {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-button-primary-text, #fff);
+}
+
+.admin-members__tabs span {
+    display: inline-flex;
+    min-width: 22px;
+    justify-content: center;
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: rgb(127 127 127 / 15%);
+    font-size: 12px;
+}
+
+.admin-members__toolbar,
+.admin-trainers__toolbar {
+    margin-bottom: 18px;
+}
+
+.admin-members__toolbar input,
+.admin-trainers__toolbar input {
+    width: 100%;
+    max-width: 560px;
+    min-height: 42px;
+    padding: 10px 13px;
+    box-sizing: border-box;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    outline: none;
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    font: inherit;
+}
+
+.admin-members__toolbar input:focus,
+.admin-trainers__toolbar input:focus {
+    border-color: var(--color-primary);
+}
+
+.admin-members__table-wrapper,
+.admin-trainers__table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-sm, 0 2px 8px rgb(0 0 0 / 5%));
+}
+
+.admin-members__table,
+.admin-trainers__table {
+    width: 100%;
+    min-width: 1050px;
+    border-collapse: collapse;
+}
+
+.admin-members__table th,
+.admin-trainers__table th {
+    padding: 14px 16px;
+    text-align: left;
+    white-space: nowrap;
+    background: var(--color-surface-secondary);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm, 13px);
+    font-weight: 700;
+}
+
+.admin-members__table td,
+.admin-trainers__table td {
+    padding: 14px 16px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    vertical-align: middle;
+    font-size: 13px;
+}
+
+.admin-members__table tbody tr:hover,
+.admin-trainers__table tbody tr:hover {
+    background: var(--color-surface-secondary);
+}
+
+.admin-members__name-cell {
+    min-width: 140px;
+    font-weight: 600;
+}
+
+.admin-members__table select,
+.admin-trainers__table select {
+    min-width: 125px;
+    max-width: 150px;
+    padding: 8px 9px;
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    font: inherit;
+}
+
+.admin-members__status,
+.admin-trainers__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.admin-members__status--approved,
+.admin-trainers__badge--approved {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.admin-members__status--pending,
+.admin-trainers__badge--pending {
+    color: #92400e;
+    background: #fef3c7;
+}
+
+.admin-members__status--rejected,
+.admin-trainers__badge--rejected {
+    color: #991b1b;
+    background: #fee2e2;
+}
+
+.admin-members__actions,
+.admin-trainers__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    min-width: 220px;
+}
+
+.admin-members__actions button,
+.admin-trainers__actions button,
+.admin-members__panel-header button,
+.admin-trainers__details-header button,
+.admin-trainers__editor-header button,
+.admin-members__form-actions button,
+.admin-trainers__editor-actions button {
+    padding: 8px 11px;
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-members__actions button:hover,
+.admin-trainers__actions button:hover,
+.admin-members__panel-header button:hover,
+.admin-trainers__details-header button:hover,
+.admin-trainers__editor-header button:hover {
+    border-color: var(--color-primary);
+}
+
+.admin-members__actions .admin-members__approve,
+.admin-trainers__actions .admin-trainers__approve {
+    color: #166534;
+}
+
+.admin-members__actions .admin-members__reject,
+.admin-trainers__actions .admin-trainers__reject {
+    color: #991b1b;
+}
+
+.admin-members button:disabled,
+.admin-members select:disabled,
+.admin-trainers button:disabled,
+.admin-trainers select:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.admin-members__state,
+.admin-trainers__empty {
+    padding: 36px 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-surface);
+    color: var(--color-text-secondary);
+    text-align: center;
+}
+
+.admin-members__panel,
+.admin-trainers__details,
+.admin-trainers__editor {
+    margin-top: 24px;
+    padding: 22px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-surface);
+}
+
+.admin-members__panel-header,
+.admin-trainers__details-header,
+.admin-trainers__editor-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.admin-members__panel-header h2,
+.admin-trainers__details-header h2,
+.admin-trainers__editor-header h2 {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: 20px;
+}
+
+.admin-members__details,
+.admin-trainers__details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.admin-members__detail,
+.admin-trainers__detail {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.admin-members__detail span,
+.admin-trainers__detail span {
+    color: var(--color-text-secondary);
+    font-size: 12px;
+}
+
+.admin-members__detail strong,
+.admin-trainers__detail strong {
+    color: var(--color-text-primary);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.admin-members__form,
+.admin-trainers__editor form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.admin-members__form-grid,
+.admin-trainers__editor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.admin-members__field,
+.admin-trainers__field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.admin-members__field > span,
+.admin-trainers__field > span {
+    color: var(--color-text-primary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.admin-members__field input,
+.admin-members__field select,
+.admin-members__field textarea,
+.admin-trainers__field input,
+.admin-trainers__field textarea {
+    width: 100%;
+    min-height: 40px;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    font: inherit;
+}
+
+.admin-members__field textarea,
+.admin-trainers__field textarea {
+    resize: vertical;
+}
+
+.admin-members__field--wide,
+.admin-trainers__field--wide {
+    grid-column: 1 / -1;
+}
+
+.admin-members__form-actions,
+.admin-trainers__editor-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.admin-members__form-actions .admin-members__primary,
+.admin-trainers__editor-actions button[type="submit"] {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-button-primary-text, #fff);
+}
+
+@media (max-width: 900px) {
+    .admin-members__container,
+    .admin-trainers__container {
+        padding: 24px 16px;
+    }
+
+    .admin-members__details,
+    .admin-trainers__details-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .admin-members__header,
+    .admin-trainers__header {
+        flex-direction: column;
+    }
+
+    .admin-members__form-grid,
+    .admin-trainers__editor-grid,
+    .admin-members__details,
+    .admin-trainers__details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-members__field--wide,
+    .admin-trainers__field--wide {
+        grid-column: auto;
+    }
+
+    .admin-members__panel,
+    .admin-trainers__details,
+    .admin-trainers__editor {
+        padding: 16px;
+    }
+}

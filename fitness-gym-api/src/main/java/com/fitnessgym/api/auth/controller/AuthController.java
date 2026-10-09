@@ -4,6 +4,9 @@ import com.fitnessgym.api.auth.dto.request.LoginRequest;
 import com.fitnessgym.api.auth.dto.request.RegisterRequest;
 import com.fitnessgym.api.auth.dto.response.LoginResponse;
 import com.fitnessgym.api.auth.service.AuthService;
+import com.fitnessgym.api.auth.dto.response.CurrentUserResponse;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.access.prepost.PreAuthorize;
 import com.fitnessgym.api.common.response.ApiResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -43,6 +46,23 @@ public ResponseEntity<ApiResponse<LoginResponse>> login(
     return ResponseEntity.ok(
             ApiResponse.success(
                     "Login successful",
+                    response
+            )
+    );
+}
+
+@GetMapping("/me")
+@PreAuthorize("isAuthenticated()")
+public ResponseEntity<ApiResponse<CurrentUserResponse>> getCurrentUser(
+        Authentication authentication
+) {
+
+    CurrentUserResponse response =
+            authService.getCurrentUser(authentication);
+
+    return ResponseEntity.ok(
+            ApiResponse.success(
+                    "Current user retrieved successfully",
                     response
             )
     );

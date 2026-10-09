@@ -3,6 +3,8 @@ package com.fitnessgym.api.classmanagement.dto.response;
 import com.fitnessgym.api.common.enums.ClassStatus;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,4 +25,8 @@ public class ClassResponse {
     private String location;
 
     private ClassStatus classStatus;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 }

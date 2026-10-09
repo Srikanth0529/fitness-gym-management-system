@@ -32,6 +32,8 @@ public class MemberResponse {
 
     private String approvalStatus;
 
+    private String accountStatus;
+
     private LocalDate joinDate;
 
     private LocalDateTime createdAt;

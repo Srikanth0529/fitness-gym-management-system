@@ -13,6 +13,8 @@ public class LoginResponse {
 
     private Long memberId;
 
+    private Long trainerId;
+
     private String email;
 
     private String role;

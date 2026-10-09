@@ -59,6 +59,7 @@ function AuthProvider({ children }) {
         const authenticatedUser = {
             userId: loginResponse.userId,
             memberId: loginResponse.memberId,
+            trainerId: loginResponse.trainerId,
             email: loginResponse.email,
             role: loginResponse.role,
             tokenType: loginResponse.tokenType,

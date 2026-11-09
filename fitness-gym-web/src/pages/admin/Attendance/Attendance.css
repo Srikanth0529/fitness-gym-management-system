@@ -1,0 +1,122 @@
+
+.admin-attendance {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+    color: var(--color-text-primary);
+}
+
+.admin-attendance__header > span {
+    color: var(--color-primary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.08em;
+}
+
+.admin-attendance__header h1 {
+    margin: var(--spacing-2) 0;
+    font-size: var(--font-size-heading-xl);
+}
+
+.admin-attendance__header p {
+    color: var(--color-text-secondary);
+}
+
+.admin-attendance__filters {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: var(--spacing-4);
+}
+
+.admin-attendance__filters > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    min-width: 200px;
+}
+
+.admin-attendance__filters label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+}
+
+.admin-attendance__filters input,
+.admin-attendance__filters select {
+    min-height: 42px;
+    padding: var(--spacing-3);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    font: inherit;
+}
+
+.admin-attendance__summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-5);
+}
+
+.admin-attendance__summary > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    padding: var(--spacing-4);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface-secondary);
+}
+
+.admin-attendance__summary span {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.admin-attendance__summary strong {
+    font-size: var(--font-size-2xl);
+}
+
+.attendance-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: var(--font-size-sm);
+}
+
+.attendance-table th,
+.attendance-table td {
+    padding: var(--spacing-3);
+    border-bottom: 1px solid var(--color-border);
+    white-space: nowrap;
+}
+
+.attendance-table th {
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-semibold);
+}
+
+@media (max-width: 640px) {
+    .admin-attendance__header h1 {
+        font-size: var(--font-size-heading-lg);
+    }
+
+    .admin-attendance__summary {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-attendance__filters {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .admin-attendance__filters > div {
+        width: 100%;
+    }
+}

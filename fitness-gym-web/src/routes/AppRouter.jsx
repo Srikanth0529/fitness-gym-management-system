@@ -29,42 +29,34 @@ import AdminMembers from "../pages/admin/Members/Members";
 import AdminTrainers from "../pages/admin/Trainers/Trainers";
 
 import TrainerClients from "../pages/trainer/Clients/Clients";
+import MemberAttendance from "../pages/member/Attendance/Attendance";
+import TrainerAttendance from "../pages/trainer/Attendance/Attendance";
+import AdminAttendance from "../pages/admin/Attendance/Attendance";
 
 import ProtectedRoute from "./ProtectedRoute";
 import RoleRoute from "./RoleRoute";
 
 
-function Placeholder({
-    title,
-}) {
-
+function Placeholder({ title }) {
     return (
-
         <section>
-
-            <h1>
-                {title}
-            </h1>
+            <h1>{title}</h1>
 
             <p
                 style={{
-                    marginTop:
-                        "var(--spacing-4)",
+                    marginTop: "var(--spacing-4)",
                 }}
             >
                 This page will be implemented in a
                 later development part.
             </p>
-
         </section>
     );
 }
 
 
 function AppRouter() {
-
     return (
-
         <Routes>
 
             {/* =====================================================
@@ -115,53 +107,44 @@ function AppRouter() {
                     <Route
                         element={
                             <RoleRoute
-                                allowedRoles={[
-                                    "MEMBER",
-                                ]}
+                                allowedRoles={["MEMBER"]}
                             />
                         }
                     >
 
                         <Route
                             path="/member/profile"
-                            element={
-                                <ProfilePage />
-                            }
+                            element={<ProfilePage />}
                         />
 
                         <Route
                             path="/member/membership-plans"
-                            element={
-                                <MembershipPlans />
-                            }
+                            element={<MembershipPlans />}
                         />
 
                         <Route
                             path="/member/subscribe"
-                            element={
-                                <SubscribeMembership />
-                            }
+                            element={<SubscribeMembership />}
                         />
 
                         <Route
                             path="/member/membership"
-                            element={
-                                <CurrentMembership />
-                            }
+                            element={<CurrentMembership />}
                         />
 
                         <Route
                             path="/member/classes"
-                            element={
-                                <Classes />
-                            }
+                            element={<Classes />}
                         />
 
                         <Route
                             path="/member/bookings"
-                            element={
-                                <MemberBookings />
-                            }
+                            element={<MemberBookings />}
+                        />
+
+                        <Route
+                            path="/member/attendance"
+                            element={<MemberAttendance />}
                         />
 
                     </Route>
@@ -174,18 +157,14 @@ function AppRouter() {
                     <Route
                         element={
                             <RoleRoute
-                                allowedRoles={[
-                                    "TRAINER",
-                                ]}
+                                allowedRoles={["TRAINER"]}
                             />
                         }
                     >
 
                         <Route
                             path="/trainer/profile"
-                            element={
-                                <ProfilePage />
-                            }
+                            element={<ProfilePage />}
                         />
 
                         <Route
@@ -199,30 +178,27 @@ function AppRouter() {
 
                         <Route
                             path="/trainer/classes"
-                            element={
-                                <CreateClass />
-                            }
+                            element={<CreateClass />}
                         />
 
                         <Route
                             path="/trainer/classes/create"
-                            element={
-                                <CreateClass />
-                            }
+                            element={<CreateClass />}
                         />
 
                         <Route
                             path="/trainer/clients"
-                            element={
-                                <TrainerClients />
-                            }
+                            element={<TrainerClients />}
                         />
 
                         <Route
                             path="/trainer/bookings"
-                            element={
-                                <TrainerBookings />
-                            }
+                            element={<TrainerBookings />}
+                        />
+
+                        <Route
+                            path="/trainer/attendance"
+                            element={<TrainerAttendance />}
                         />
 
                     </Route>
@@ -235,18 +211,14 @@ function AppRouter() {
                     <Route
                         element={
                             <RoleRoute
-                                allowedRoles={[
-                                    "ADMIN",
-                                ]}
+                                allowedRoles={["ADMIN"]}
                             />
                         }
                     >
 
                         <Route
                             path="/admin/profile"
-                            element={
-                                <ProfilePage />
-                            }
+                            element={<ProfilePage />}
                         />
 
                         <Route
@@ -260,37 +232,32 @@ function AppRouter() {
 
                         <Route
                             path="/admin/members"
-                            element={
-                                <AdminMembers />
-                            }
+                            element={<AdminMembers />}
                         />
 
                         <Route
                             path="/admin/trainers"
-                            element={
-                                <AdminTrainers />
-                            }
+                            element={<AdminTrainers />}
                         />
 
                         <Route
                             path="/admin/classes"
-                            element={
-                                <CreateClass />
-                            }
+                            element={<CreateClass />}
                         />
 
                         <Route
                             path="/admin/classes/create"
-                            element={
-                                <CreateClass />
-                            }
+                            element={<CreateClass />}
                         />
 
                         <Route
                             path="/admin/bookings"
-                            element={
-                                <AdminBookings />
-                            }
+                            element={<AdminBookings />}
+                        />
+
+                        <Route
+                            path="/admin/attendance"
+                            element={<AdminAttendance />}
                         />
 
                     </Route>

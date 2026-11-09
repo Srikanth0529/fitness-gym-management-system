@@ -1,11 +1,11 @@
+
 import {
     LayoutDashboard,
     User,
     CreditCard,
     CalendarDays,
     ClipboardList,
-    Users,
-    UserCog,
+    ClipboardCheck,
 } from "lucide-react";
 
 
@@ -43,6 +43,12 @@ export const navigationConfig = {
             icon: ClipboardList,
         },
 
+        {
+            label: "Attendance",
+            path: "/member/attendance",
+            icon: ClipboardCheck,
+        },
+
     ],
 
 
@@ -67,15 +73,15 @@ export const navigationConfig = {
         },
 
         {
-            label: "My Clients",
-            path: "/trainer/clients",
-            icon: Users,
-        },
-
-        {
             label: "Bookings",
             path: "/trainer/bookings",
             icon: ClipboardList,
+        },
+
+        {
+            label: "Attendance",
+            path: "/trainer/attendance",
+            icon: ClipboardCheck,
         },
 
     ],
@@ -96,18 +102,6 @@ export const navigationConfig = {
         },
 
         {
-            label: "Members",
-            path: "/admin/members",
-            icon: Users,
-        },
-
-        {
-            label: "Trainers",
-            path: "/admin/trainers",
-            icon: UserCog,
-        },
-
-        {
             label: "Class Management",
             path: "/admin/classes",
             icon: CalendarDays,
@@ -117,6 +111,12 @@ export const navigationConfig = {
             label: "Bookings",
             path: "/admin/bookings",
             icon: ClipboardList,
+        },
+
+        {
+            label: "Attendance",
+            path: "/admin/attendance",
+            icon: ClipboardCheck,
         },
 
     ],
